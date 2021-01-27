@@ -1,0 +1,37 @@
+<div class="p-grid">
+    <div class="p-col-3">
+        <h2 style="margin-bottom: 0px;">Angular-On-FHIR</h2>
+        <span>An Angular template for SMART on FHIR</span>
+        <p>
+            <strong>Logged in as:</strong><br>
+            <span *ngIf="user?.name[0].prefix?.length>0">{{user?.name[0].prefix[0]}}</span> {{user?.name[0].given[0]}} {{user?.name[0].family}}
+            <p-avatar [label]="Initials(user?.name)" shape="circle" size="small"></p-avatar>
+        </p>
+        <div>
+         
+        </div>
+    </div>
+    <div class="p-col-9">
+        <p-card>
+            <h3>Patient</h3>
+            <p>
+                Name:<br><b>{{ PatientName(patient?.name) }}</b>
+            </p>
+            <p>
+                Gender:<br><b>{{ patient?.gender }}</b>
+            </p>
+            <p>
+                DOB:<br><b>{{ patient?.birthDate }}</b>
+            </p>
+            <p *ngIf="patient?.deceasedDateTime">
+                Deceased:<br><b>{{ patient?.deceasedDateTime }}</b>
+            </p>
+            <p>
+                Address:<br><b>
+                    {{ patient?.address[0].line }}<br>
+                    {{ patient?.address[0].city }}, {{ patient?.address[0].state }} {{ patient?.address[0].postalCode }}
+                </b>
+            </p>
+        </p-card>        
+    </div>
+</div>
