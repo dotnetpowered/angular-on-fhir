@@ -1,6 +1,10 @@
 # angular-on-fhir
 An Angular template for SMART on FHIR
 
+## RUNNING THE SAMPLE
+The sample template is deployed to GitHub pages and can be accessed via the SMART on FHIR launcher:
+https://launch.smarthealthit.org/?auth_error=&fhir_version_1=r4&fhir_version_2=r4&iss=&launch_ehr=1&launch_url=https%3A%2F%2Fdotnetpowered.github.io%2Fangular-on-fhir%2Flaunch&patient=&prov_skip_auth=1&provider=&pt_skip_auth=1&pt_skip_login=0&public_key=&sb=&sde=&sim_ehr=0&token_lifetime=15&user_pt=fc200fa2-12c9-4276-ba4a-e0601d424e55
+
 ## DEVELOPING LOCALLY
 
 ### Development server

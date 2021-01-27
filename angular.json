@@ -50,7 +50,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "baseHref": "/NoteX/",
+              "baseHref": "/angular-on-fhir/",
               "budgets": [
                 {
                   "type": "initial",
