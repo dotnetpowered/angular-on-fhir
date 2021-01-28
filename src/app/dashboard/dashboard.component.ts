@@ -32,10 +32,13 @@ export class DashboardComponent implements OnInit {
     return entry.given.join(" ") + " " + entry.family;
   }
 
-  PatientAge(birthDate)
+  PatientAge(birthDate, deceasedDateTime)
   {
     const dob = new Date(birthDate);
-    const today = new Date();
+    var today = new Date();
+    if (deceasedDateTime) {
+      today = new Date(deceasedDateTime);
+    }
     let age = Math.floor((today.valueOf()-dob.valueOf()) / (365.25 * 24 * 60 * 60 *1000));
     return age;
   }

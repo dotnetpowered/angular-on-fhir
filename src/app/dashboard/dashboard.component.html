@@ -17,7 +17,7 @@
                 Gender: <b>{{ patient?.gender }}</b>
             </p>
             <p>
-                DOB: <b>{{ patient?.birthDate }} ({{PatientAge(patient?.birthDate)}} years old)</b>
+                DOB: <b>{{ patient?.birthDate }} ({{ PatientAge(patient?.birthDate, patient?.deceasedDateTime) }} years old)</b>
             </p>
             <p *ngIf="patient?.deceasedDateTime">
                 Deceased: <b>{{ patient?.deceasedDateTime }}</b>
