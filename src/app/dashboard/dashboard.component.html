@@ -7,31 +7,33 @@
             <span *ngIf="user?.name[0].prefix?.length>0">{{user?.name[0].prefix[0]}}</span> {{user?.name[0].given[0]}} {{user?.name[0].family}}
             <p-avatar [label]="Initials(user?.name)" shape="circle" size="small"></p-avatar>
         </p>
-        <div>
-         
-        </div>
     </div>
     <div class="p-col-9">
-        <p-card>
-            <h3>Patient</h3>
+        <p-card header="Patient" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
             <p>
-                Name:<br><b>{{ PatientName(patient?.name) }}</b>
+                Name: <b>{{ PatientName(patient?.name) }}</b>
             </p>
             <p>
-                Gender:<br><b>{{ patient?.gender }}</b>
+                Gender: <b>{{ patient?.gender }}</b>
             </p>
             <p>
-                DOB:<br><b>{{ patient?.birthDate }}</b>
+                DOB: <b>{{ patient?.birthDate }} ({{PatientAge(patient?.birthDate)}} years old)</b>
             </p>
             <p *ngIf="patient?.deceasedDateTime">
-                Deceased:<br><b>{{ patient?.deceasedDateTime }}</b>
-            </p>
-            <p>
-                Address:<br><b>
-                    {{ patient?.address[0].line }}<br>
-                    {{ patient?.address[0].city }}, {{ patient?.address[0].state }} {{ patient?.address[0].postalCode }}
-                </b>
-            </p>
-        </p-card>        
+                Deceased: <b>{{ patient?.deceasedDateTime }}</b>
+            </p>    
+        </p-card>
+        <p-card header="Address" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            {{ patient?.address[0].line }}<br>
+            {{ patient?.address[0].city }}, {{ patient?.address[0].state }} {{ patient?.address[0].postalCode }}
+        </p-card>
+        <p-card header="Blood Pressure" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            Systolic: {{sys}}<br>
+            Diastolic: {{dia}}
+        </p-card>
+        <p-card *ngIf="ldl || hdl" header="Cholesterol" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            LDL: {{ldl}}<br>
+            HDL: {{hdl}}
+        </p-card>
     </div>
 </div>
