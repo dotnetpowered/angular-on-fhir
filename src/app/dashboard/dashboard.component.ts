@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   dia: string;
   hdl: string;
   ldl: string;
+  meds: string[];
   patient: fhirclient.FHIR.Patient;
   user: fhirclient.FHIR.Patient | fhirclient.FHIR.Practitioner | fhirclient.FHIR.RelatedPerson; 
 
@@ -125,6 +126,19 @@ export class DashboardComponent implements OnInit {
           }
           this.hdl = this.getQuantityValueAndUnit(hdl[0]);
           this.ldl = this.getQuantityValueAndUnit(ldl[0]);
+      });
+
+      query = new URLSearchParams();
+      query.set("patient", client.patient.id);
+      query.set("_count", "100");
+
+      client.request("MedicationRequest?" + query, {
+        pageLimit: 0,
+        flat: true
+      }).then((med)=>{
+        this.meds = [];
+        for (var i=0;i<med.length;i++)
+            this.meds.push(med[i].medicationCodeableConcept.text);
       });
 
       client.patient.read().then(
